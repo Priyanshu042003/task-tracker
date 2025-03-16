@@ -1,0 +1,116 @@
+{
+    "info": {
+      "name": "MyTask API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Register",
+        "request": {
+          "method": "POST",
+          "url": "http://127.0.0.1:8000/api/register/",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"username\": \"john_doe\", \"email\": \"john@example.com\", \"password\": \"securepassword123\"}"
+          }
+        }
+      },
+      {
+        "name": "Login",
+        "request": {
+          "method": "POST",
+          "url": "http://127.0.0.1:8000/api/login/",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"username\": \"user@gmail.com\", \"password\": \"pass,123\"}"
+          }
+        }
+      },
+      {
+        "name": "Create Task",
+        "request": {
+          "method": "POST",
+          "url": "http://127.0.0.1:8000/api/task/create/",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" },
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"title\": \"Complete Project\", \"description\": \"Finish the API implementation\", \"priority\": \"High\", \"due_date\": \"2025-03-20\", \"status\": \"Pending\"}"
+          }
+        }
+      },
+      {
+        "name": "List Tasks",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://127.0.0.1:8000/api/task/list/?priority=Low&status=Pending&page=1",
+            "host": ["http://127.0.0.1:8000"],
+            "path": ["api", "task", "list"],
+            "query": [
+              { "key": "priority", "value": "Low" },
+              { "key": "status", "value": "Pending" },
+              { "key": "page", "value": "1" }
+            ]
+          },
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" }
+          ]
+        }
+      },
+      {
+        "name": "Get Single Task",
+        "request": {
+          "method": "GET",
+          "url": "http://127.0.0.1:8000/api/task/1/",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" }
+          ]
+        }
+      },
+      {
+        "name": "Update Task",
+        "request": {
+          "method": "PUT",
+          "url": "http://127.0.0.1:8000/api/task/1/update/",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" },
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"title\": \"Complete Project\", \"description\": \"Updated description\", \"priority\": \"Medium\", \"due_date\": \"2025-03-22\", \"status\": \"Completed\"}"
+          }
+        }
+      },
+      {
+        "name": "Delete Task",
+        "request": {
+          "method": "DELETE",
+          "url": "http://127.0.0.1:8000/api/task/tasks/1/delete/",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" }
+          ]
+        }
+      },
+      {
+        "name": "Generate Report",
+        "request": {
+          "method": "GET",
+          "url": "http://127.0.0.1:8000/api/task/report/",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" }
+          ]
+        }
+      }
+    ]
+  }
+  
