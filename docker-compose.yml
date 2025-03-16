@@ -17,7 +17,7 @@ services:
       - redis
     environment:
       - DJANGO_SETTINGS_MODULE=mytask.settings
-      - DATABASE_URL=postgres://postgres:pass,123@db:5432/mydb
+      - DATABASE_URL=postgres://postgres:password@db:5432/mydb
 
   db:
     image: postgres:15
@@ -26,7 +26,7 @@ services:
     environment:
       POSTGRES_DB: mydb
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: pass,123
+      POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
     volumes:
