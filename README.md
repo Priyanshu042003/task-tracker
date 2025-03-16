@@ -35,3 +35,5 @@ celery -A mytask beat --loglevel=info
 #with-docker
 docker-compose up -d celery_worker celery_beat
 
+# API Testing with Postman
+Import `task-tracker.postman_collection.json` into Postman to test the APIs.
