@@ -37,7 +37,7 @@ services:
     container_name: redis_cache
     restart: always
     ports:
-      - "6380:6379"
+      - "6379:6379"
 
   celery:
     build: .
