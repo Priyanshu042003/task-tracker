@@ -5,7 +5,7 @@ git clone https://github.com/Priyanshu042003/task-tracker.git
 cd task-tracker
 
 # Environment Setup
-#without Docker
+#without-docker
 python -m venv venv 
 source venv/bin/activate 
 venv\Scripts\activate 
@@ -13,7 +13,7 @@ venv\Scripts\activate
 pip install --upgrade pip
 pip install -r requirements.txt 
 
-#with Docker
+#with-docker
 docker-compose up --build -d
 
 # Run Migrations & Collect Static Files
@@ -21,17 +21,17 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 
 # Run the Development Server
-#without Docker
+#without-docker
 python manage.py runserver
 
-#with docker
+#with-docker
 docker-compose up -d
 
 # Start Celery Workers
-#without docker
+#without-docker
 celery -A mytask worker --loglevel=info
 celery -A mytask beat --loglevel=info
 
-#with docker
+#with-docker
 docker-compose up -d celery_worker celery_beat
 
