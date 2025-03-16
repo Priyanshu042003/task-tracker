@@ -16,7 +16,7 @@ redis_client = redis.StrictRedis(host='127.0.0.1', port=6379, db=1, decode_respo
 # Create Task
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def create_task(request):
+def create_task():
     try:
         data = json.loads(request.body)
 
@@ -139,7 +139,7 @@ def group_tasks_by_priority():
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def generate_report(request):
+def generate_report():
     with ThreadPoolExecutor() as executor:
         future_completed = executor.submit(count_completed_tasks)
         future_pending = executor.submit(count_pending_tasks)
